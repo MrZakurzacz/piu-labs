@@ -1,0 +1,163 @@
+  :root {
+    color-scheme: light;
+    --bg: #f5f6f7;
+    --text: #0f172a;
+    --muted: #242528;
+    --card: #ffffff;
+    --border: #aaacb0;
+    --shadow: 0 10px 25px rgba(0,0,0,.3);
+    --accent: #4CAF50;
+    --accent-hover: #45a049;
+    --input-bg: #ffffff;
+  }
+
+  #theme-toggle:checked ~ .page {
+    --bg: #0b1020;
+    --text: #e5e7eb;
+    --muted: #ffffff;
+    --card: #1C1C1C;
+    --border: #000000;
+    --shadow: 0 10px 25px rgba(0,0,0,.35);
+    --accent: #4CAF50;       
+    --accent-hover: #45a049;
+    --input-bg: #383838;
+    --color: white;
+  }
+
+  /* ---------- Layout ---------- */
+  html,body{
+    height:100%;
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  }
+  .page{
+    min-height:100%;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding: 32px 16px 64px;
+  }
+
+  .container{
+    width:100%;
+    max-width:500px;                 
+  }
+
+  .titlebar{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    margin: 4px 0 18px;
+  }
+  label{
+    color: var(--color);
+    padding: 2 0 0 0px;
+  }
+  .titlebar h1{
+    font-size: clamp(28px, 36px);
+    line-height:1.1;
+    margin:0;
+  }
+
+  .theme-toggle{
+    font-size: 32px;
+    line-height:1;
+    user-select:none;
+    cursor:pointer;                  
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+    border-radius: 9999px;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .theme-toggle:hover{ background: rgba(0,0,0,.06); transform: translateY(-1px); }
+  #theme-toggle:checked ~ .page .theme-toggle:hover{ background: rgba(255,255,255,.06); }
+
+  .card{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius:8px;
+    box-shadow: var(--shadow);
+    padding:24px;
+  }
+  .contest-form,
+  .contest-form label,
+  .contest-form input,
+  .contest-form select,
+  .contest-form button,
+  .contest-form legend {
+    font-size:16px;                  
+  }
+
+  .field{ margin-bottom:16px; }
+  .contest-label{
+    display:block;
+    color: var(--muted);
+  }
+
+  .control{
+    width:100%;
+    box-sizing:border-box;
+    padding: 10px 12px;
+    background: var(--input-bg);
+    color: var(--text);
+    outline:none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .control:focus{
+    border-color:#6fcf97;
+    box-shadow: 0 0 0 3px rgba(76,175,80,.15);
+  }
+
+  input[list]::-webkit-calendar-picker-indicator { cursor:pointer; }
+
+  fieldset{
+    border:2px solid var(--text);
+    padding:12px 14px;
+    margin:0 0 16px;
+  }
+  legend{
+    padding:0 6px;
+    color: var(--muted);
+  }
+
+  .option{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:6px 0;
+  }
+
+  .btn{
+    width:100%;
+    display:inline-block;
+    padding:12px 16px;
+    border:0;
+    background: var(--accent);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;                  
+    transition: background .15s ease, transform .06s ease;
+  }
+  .btn:hover{ background: var(--accent-hover); }
+  .btn:active{ transform: translateY(1px); }
+
+  label[for], 
+  .option label,
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="color"],
+  select,
+  button { cursor:pointer; }
+
+  input[type="color"].control{
+    padding:5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 44px;
+  }
+

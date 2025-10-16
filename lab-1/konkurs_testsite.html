@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zgłoszenie do Konkursu Plastycznego</title>
+<link rel="stylesheet" href="css/konkurs.css">
+</head>
+<body>
+
+<input id="theme-toggle" type="checkbox" hidden>
+
+<div class="page">
+  <div class="container">
+    <div class="titlebar">
+      <div>
+        <h1>Zgłoszenie<br>do Konkursu Plastycznego</h1>
+      </div>
+      <label for="theme-toggle" class="theme-toggle" title="Zmień motyw">🌗</label>
+    </div>
+
+    <div class="card">
+      <form action="https://httpbin.org/post" method="post" class="contest-form" novalidate>
+        <div class="field">
+          <label for="Name" class="contest-label">Imię:</label>
+          <input id="Name" name="Name" class="control" type="text" required maxlength="30"/>
+        </div>
+
+        <div class="field">
+          <label for="Surname" class="contest-label">Nazwisko:</label>
+          <input id="Surname" name="Surname" class="control" type="text" required maxlength="50"/>
+        </div>
+
+        <div class="field">
+          <label for="Email" class="contest-label">Email:</label>
+          <input id="Email" name="Email" class="control" type="email" required/>
+        </div>
+
+        <div class="field">
+          <label for="City" class="contest-label">Miasto:</label>
+          <input id="City" name="City" class="control" list="cities" required placeholder="Wpisz lub wybierz" />
+          <datalist id="cities">
+            <option value="Kraków"></option>
+            <option value="Warszawa"></option>
+            <option value="Gdańsk"></option>
+            <option value="Wrocław"></option>
+            <option value="Poznań"></option>
+          </datalist>
+        </div>
+
+        <div class="field">
+          <label for="BirthDate" class="contest-label">Data urodzenia:</label>
+          <input id="BirthDate" name="BirthDate" class="control" type="date" required />
+        </div>
+
+        <div class="field">
+          <label for="Works" class="contest-label">Liczba zgłaszanych prac (od 1 do 6):</label>
+          <input id="Works" name="Works" class="control" type="number" inputmode="numeric" min="1" max="6" step="1" required />
+        </div>
+
+        <div class="field">
+          <label for="LeadColor" class="contest-label">Kolor wiodący prac:</label>
+          <input id="LeadColor" name="LeadColor" class="control" type="color" required value="#ffd700" />
+        </div>
+
+        <div class="field">
+          <label for="Category" class="contest-label">Kategoria pracy:</label>
+          <select id="Category" name="Category" class="control" required>
+            <option value="" selected disabled>-- wybierz kategorię --</option>
+            <option>Rysunek</option>
+            <option>Malarstwo</option>
+            <option>Grafika cyfrowa</option>
+          </select>
+        </div>
+
+        <fieldset class="field">
+          <legend>Publikacja pracy online:</legend>
+          <div class="option">
+            <input type="radio" id="pub-yes" name="Publish" value="Tak" required>
+            <label for="pub-yes">Tak</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="pub-no" name="Publish" value="Nie" required>
+            <label for="pub-no">Nie</label>
+          </div>
+        </fieldset>
+
+        <div class="field option">
+          <input type="checkbox" id="Terms" name="Terms" required>
+          <label for="Terms">Zgadzam się na regulamin konkursu</label>
+        </div>
+
+        <button type="submit" class="btn">Wyślij zgłoszenie</button>
+      </form>
+    </div>
+  </div>
+</div>
+    <a href="index.html">Powrót</a>
+</body>
+</html>
