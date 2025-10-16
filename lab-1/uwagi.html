@@ -1,19 +1,200 @@
-<!DOCTYPE html>
-<link rel="stylesheet" href="css/main.css">
+<!doctype html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Lab 1</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <h1>Jakub Dziektarz</h1>
-    <a href="login.html">Logowanie</a>
-    <br /> 
-    <a href="konkurs.html">Konkurs almette</a>
-    <br /> 
-    <a href="uwagi.html">Uwagi</a>
-    <br />
-    <a href="index.html">Powrót</a>
-  </body>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Uwagi o formularzach HTML (bez JavaScriptu)</title>
+<style>
+  /* --------- Styl ogólny i motyw --------- */
+  :root{
+    color-scheme: light;
+    --bg: #f7f8fb;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #5b6476;
+    --primary: #4f46e5;
+    --primary-weak: #eef2ff;
+    --ok: #16a34a;
+    --warn: #d97706;
+    --danger: #dc2626;
+    --border: #e5e7eb;
+    --shadow: 0 10px 30px rgba(2,6,23,.06);
+    --radius: 16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      color-scheme: dark;
+      --bg: #0b1020;
+      --card: #0f172a;
+      --text: #e5e7eb;
+      --muted: #a3aab8;
+      --primary: #818cf8;
+      --primary-weak: #111a3d;
+      --border: #253046;
+      --shadow: 0 10px 30px rgba(0,0,0,.4);
+    }
+  }
+
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  }
+
+  .wrap{
+    max-width: 920px;
+    margin: clamp(20px, 4vw, 60px) auto;
+    padding: 0 16px 64px;
+  }
+
+  .hero{
+    background: linear-gradient(135deg, var(--primary-weak), transparent);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(18px, 3.5vw, 32px);
+    display: grid;
+    gap: 12px;
+  }
+  .hero h1{
+    margin:0;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  .hero p{ margin:0; color: var(--muted); }
+
+  .card{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(16px, 2.6vw, 24px);
+  }
+  .card h2{
+    margin: 0 0 10px;
+    font-size: clamp(20px, 3.3vw, 26px);
+    letter-spacing: -0.01em;
+  }
+  /* tabelka zalety/ograniczenia */
+  .table{
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .table thead th{
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--primary-weak);
+    border-bottom: 1px solid var(--border);
+  }
+  .table td{
+    padding: 10px 12px;
+    border-top: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  /* boxy statusów */
+  .pill{
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    margin-left: 6px;
+  }
+  .ok{ color: var(--ok); border-color: color-mix(in oklab, var(--ok), transparent 60%); }
+  .warn{ color: var(--warn); border-color: color-mix(in oklab, var(--warn), transparent 60%); }
+  .bad{ color: var(--danger); border-color: color-mix(in oklab, var(--danger), transparent 60%); }
+
+  /* code */
+  code, pre{
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.95em;
+  }
+  pre{
+    background: color-mix(in oklab, var(--card), black 3%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    overflow: auto;
+  }
+
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero" role="banner" aria-label="Nagłówek strony">
+      <h1>Uwagi o formularzach HTML (bez JavaScriptu)</h1>
+      <p>Co działa świetnie a gdzie są ograniczenia</p>
+    </header>
+
+    <section class="grid" aria-label="Główna treść">
+      <article class="card" aria-labelledby="zalety-ogr">
+        <h2 id="zalety-ogr">Zalety i ograniczenia</h2>  <table class="table" role="table" aria-label="Tabela zalet i ograniczeń">
+    <thead>
+      <tr>
+        <th scope="col">Zalety (bez JS)</th>
+        <th scope="col">Ograniczenia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Używanie <strong>walidacji HTML5</strong>: <code>required</code>, <code>type="email|url|number|date"</code>,
+          <code>min/max/step</code>, <code>pattern</code></span>
+        </td>
+        <td>
+          Walidacja wygląda inaczej w różnych przeglądarkach i trudno ją zmienić bez JS.
+          Nie da się też zrobić bardziej rozbudowanych wyłapywań błędów. <span class="pill bad">ograniczone możliwości</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Używanie wielu typów pól: <code>date</code>, <code>color</code>, <code>datalist</code>,
+          <code>range</code>, <code>tel</code>, <code>email</code>. <span class="pill ok">łatwiejsze wprowadzanie</span>
+        </td>
+        <td>
+          <code>datalist</code> działa słabo – nie można wybierać klawiaturą, nie filtruje dobrze
+          i nie ma komunikatu „brak wyników”. <span class="pill warn">średnio wygodne</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Formularz działa nawet bez JS – można wysłać dane na serwer. <span class="pill ok">działa zawsze</span>
+        </td>
+        <td>
+          Brak interakcji po stronie użytkownika – nie da się zrobić kroków, podglądów ani
+          sprawdzania danych na bieżąco. <span class="pill bad">brak dynamiki</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Mniej kodu i prostsze działanie – łatwiej napisać i trudniej popsuć. <span class="pill ok">mniej pracy</span>
+        </td>
+        <td>
+          Wygląd pól zależy od przeglądarki i systemu, więc trudno zrobić, żeby wszędzie wyglądało tak samo.
+          <span class="pill warn">różny wygląd</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+        <h3>Przykłady walidacji HTML5 „out-of-the-box”</h3>
+        <pre><code>&lt;input type="email" required&gt;
+&lt;input type="number" min="1" max="6"required&gt;
+&lt;input type="text" maxlength="30" required&gt;
+&lt;input type="date" required&gt;
+&lt;input type="text" pattern="[A-Za-z\- ]{1,50}" title="Tylko litery i mylsniki." required&gt;</code></pre>
+
+
+
+
+  </main>
+</body>
 </html>
