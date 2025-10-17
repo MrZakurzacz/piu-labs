@@ -10,7 +10,6 @@ body {
 }
 
 a {
-  color: #0066cc; /* niebieski kolor linków */
   text-decoration: none; /* bez podkreślenia */
   font-size: 1.4rem;
 }
