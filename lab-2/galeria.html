@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeria</title>
+    <link rel="stylesheet" href="css/galeria.css" />
+</head>
+<body>
+  <header>
+    <h1>One must imagine Sisyphus happy.</h1>
+  </header>
+
+  <div class="gallery">
+  <div id="col1" class="col">
+    <figure class="card">
+      <picture>
+        <source srcset="images/pic01_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic01_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic01_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic01_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic01_1000.jpg" alt="1984_orwell" loading="lazy">
+      </picture>
+      <figcaption>George Orwell is the embodiment of Blair’s ideals: clarity, fairness, patriotism without nationalism, and truthfulness in expression.</figcaption>
+    </figure>
+        <figure class="card">
+      <picture>
+        <source srcset="images/pic03_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic03_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic03_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic03_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic03_1000.jpg" alt="Plague_camus" loading="lazy">
+      </picture>
+      <figcaption>Camus’s name remains tied to his identity as both a philosopher of resistance and a witness to human dignity, refusing illusion even in tragedy.</figcaption>
+    </figure>
+        <figure class="card">
+      <picture>
+        <source srcset="images/pic05_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic05_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic05_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic05_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic05_1000.jpg" alt="LePetitPrince_Exupery" loading="lazy">
+      </picture>
+      <figcaption>Antoine sought to reconcile technology and tenderness, courage and vulnerability, revealing that true greatness lies in care and imagination.</figcaption>
+    </figure>
+            <figure class="card">
+      <picture>
+        <source srcset="images/pic07_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic07_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic07_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic07_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic07_1000.jpg" alt="BraveNewWorld_Huxley" loading="lazy">
+      </picture>
+      <figcaption>Huxley’s name became synonymous with critical foresight and his writing sought to awaken consciousness before humanity traded truth for convenience.</figcaption>
+    </figure>
+            <figure class="card">
+      <picture>
+        <source srcset="images/pic09_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic09_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic09_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic09_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic09_1000.jpg" alt="LePetitPrince_Exupery" loading="lazy">
+      </picture>
+      <figcaption>Bradbury represents the fire of creativity itself. A writer who refused cynicism, believing imagination was not fantasy, but our most vital act of resistance.</figcaption>
+    </figure>
+    
+
+    <!-- wrzuć część kart tu, by zbalansować wysokości -->
+    <!-- ... kolejne figure ... -->
+  </div>
+
+  <div id="col2" class="col">
+        <figure class="card">
+      <picture>
+        <source srcset="images/pic02_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic02_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic02_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic02_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic02_1000.jpg" alt="Sapiens_Harari" loading="lazy">
+      </picture>
+      <figcaption>Harari’s public persona: calm, analytical, and minimalist. It mirrors the tone of his writing: fact-based, philosophical, and forward-looking.</figcaption>
+    </figure>
+        <figure class="card">
+      <picture>
+        <source srcset="images/pic04_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic04_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic04_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic04_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic04_1000.jpg" alt="TheArtOfPenisHandling_AGPP" loading="lazy">
+      </picture>
+      <figcaption>A. G. - Clinical psychologist, sexologist, and psychotherapist. P. P. - Dramatist, screenwriter, journalist, and stand-up comedian. (I don't know much more about them to be honest)</figcaption>
+    </figure>
+        <figure class="card">
+      <picture>
+        <source srcset="images/pic06_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic06_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic06_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic06_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic06_1000.jpg" alt="DasKapital_KarlMarx" loading="lazy">
+      </picture>
+      <figcaption>Marx represents a voice demanding justice, equality, and awareness of the forces that define society.</figcaption>
+    </figure>
+        </figure>
+        <figure class="card">
+      <picture>
+        <source srcset="images/pic08_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic08_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic08_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic08_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic08_1000.jpg" alt="TheSpringToCome_Zeromski" loading="lazy">
+      </picture>
+      <figcaption>Zeromski believed that literature should heal, awaken, and demand responsibility from both the reader and self - Both himself and his creations.</figcaption>
+    </figure>
+        </figure>
+        <figure class="card">
+      <picture>
+        <source srcset="images/pic10_1000.jpg" media="(min-width: 1600px)">
+        <source srcset="images/pic10_500.jpg"  media="(min-width: 1200px)">
+        <source srcset="images/pic10_1000.jpg" media="(min-width: 800px)">
+        <source srcset="images/pic10_500.jpg"  media="(max-width: 799px)">
+        <img src="images/pic10_1000.jpg" alt="PiknikNaSkrajuDrogi_Strugatsky" loading="lazy">
+      </picture>
+      <figcaption>The Brothers name, Strugatsky, shows hope and defiance through imagination. Proving even in a controlled society, thought and empathy could remain free.</figcaption>
+    </figure>
+  </div>
+</div>
+
+  </main>
+</body>
+</html>
