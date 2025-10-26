@@ -244,12 +244,66 @@ it was all the same color after all */
   color: #000;
   font-weight: 600;
   box-sizing: border-box;
+
+    transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease,
+    color 120ms ease,
+    border-color 120ms ease;
+  transform: scale(1) translateY(0);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
-.size-pill input:checked + span {
+/* ^^ ANIME SECTOR vv */
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-16px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(8px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-8px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(4px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-2px) rotate(-1.2deg);
+	}
+}
+
+.size-pill:hover span,
+.size-pill:focus-within span,
+.add-to-cart:hover,
+.add-to-cart:focus-within {
+  transform: scale(1.06) translateY(-2px);
+  animation: myAnim 1.75s ease 0s 1 normal forwards;
+}
+
+.size-pill:active span,
+.add-to-cart:active {
+  transform: scale(0.96) translateY(0);
+}
+
+
+.size-pill input:checked + span,.size-pill:hover span {
   background: var(--accent-bg);
   color: var(--accent-text);
   border-color: var(--accent-bord);
+  transform: scale(0.92) translateY();
+  box-shadow: 0 8px 14px rgba(0,0,0,0.22);
 }
 
 /* PRICE */
