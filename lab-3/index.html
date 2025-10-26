@@ -1,12 +1,89 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Lab 3</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <h1>Lab 3</h1>
-    <a href="..">Powrót</a>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koszulka Polo</title>
+  <link rel="stylesheet" href="css/polo.css" />
+</head>
+<body>
+
+<main class="page">
+
+  <!-- THEME RADIOS -->
+  <input type="radio" name="theme" id="color-blue"   class="theme-radio">
+  <input type="radio" name="theme" id="color-red"    class="theme-radio">
+  <input type="radio" name="theme" id="color-green"  class="theme-radio" checked>
+  <input type="radio" name="theme" id="color-yellow" class="theme-radio">
+
+  <article class="product-card">
+
+    <!-- LEFT SIDE -->
+    <div class="product-media">
+      <div class="product-image-frame">
+        <img src="images/polo_b.png" alt="Koszulka Polo" class="product-image">
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="product-info">
+
+      <div class="title-row">
+        <h1 class="product-title">Koszulka Polo</h1>
+        <span class="badge badge-promo">Promocja!</span>
+      </div>
+
+      <p class="product-desc">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quibusdam quis adipisci maiores.
+      </p>
+
+      <!-- COLOR PICKER -->
+      <fieldset class="picker">
+        <legend class="picker-legend">Kolor</legend>
+        <div class="color-options">
+          <label class="color-dot color-blue" for="color-blue"></label>
+          <label class="color-dot color-red" for="color-red"></label>
+          <label class="color-dot color-green" for="color-green"></label>
+          <label class="color-dot color-yellow" for="color-yellow"></label>
+        </div>
+      </fieldset>
+
+      <!-- SIZE PICKER -->
+      <fieldset class="picker">
+        <legend class="picker-legend">Rozmiar</legend>
+        <div class="size-options">
+          <label class="size-pill">
+            <input type="radio" name="size" value="S" checked>
+            <span>S</span>
+          </label>
+          <label class="size-pill">
+            <input type="radio" name="size" value="M">
+            <span>M</span>
+          </label>
+          <label class="size-pill">
+            <input type="radio" name="size" value="L">
+            <span>L</span>
+          </label>
+          <label class="size-pill">
+            <input type="radio" name="size" value="XL">
+            <span>XL</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="product-price">
+        59,99 zł
+      </div>
+
+      <button class="add-to-cart">
+        <span class="add-icon">🛒</span>
+        <span>Do koszyka</span>
+      </button>
+
+    </div>
+  </article>
+</main>
+
+</body>
 </html>
