@@ -1,12 +1,554 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Lab 4</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <h1>Lab 4</h1>
-    <a href="..">Powrót</a>
-  </body>
+<head>
+<meta charset="utf-8" />
+<title>
+  Mr. Worldwide to infinity
+  You know the roof on fire
+  We gon' boogie, oogie-oggie, jiggle, wiggle and dance
+  Like the roof on fire
+  We gon' drink drinks and take shots until we fall out
+  Like the roof on fire
+  Now, baby, give a booty naked, take off all your clothes
+  And light the roof on fire
+  Tell her, tell her, "Baby, baby, baby, baby
+  Baby, baby, baby, baby, baby, I'm on fire"
+  I tell her, "Baby, baby, baby, baby
+  Baby, baby, baby, baby, baby, I'm a fireball"
+  Fireball
+  I saw, I came, I conquered
+  Or should I say, "I saw, I conquered, I came"? (Ha-ha)
+  This little chico on fire, and he no liar
+  While y'all slippin', he's runnin' the game
+  Now big bang boogie, give that kitty a little noogie
+  And a nice, nice little shave
+  I gave Suzie a little pat up on the booty
+  And she turned around and said, "Walk this way" (whoo!)
+  I was born (305) in a flame (M.I.A.)
+  Mama said that everyone would know my name (that's right)
+  I'm the best (that's right) you've ever had (that's right)
+  If you think I'm burning out, I never am (wow)
+  I'm on fire (hey, come here)
+  I'm on fire (come here)
+  I'm on fire (hey, come here)
+  I'm on fire
+  Fireball
+  Fireball
+  Sticks and stones may break my bones
+  But I don't care what y'all say
+  'Cause as the world turns, y'all boys gon' learn
+  That this chico right here don't play (ha-ha)
+  That boy's from the bottom, bottom of the map
+  M.I.A, U.S.A
+  I gave Suzie a little pat up on the booty
+  And she turned around and said, "Walk this way" (whoo!)
+  I was born (305) in a flame (M.I.A)
+  Mama said that everyone would know my name (that's right)
+  I'm the best (that's right) you've ever had (that's right)
+  If you think I'm burning out, I never am (wow)
+  I'm on fire (hey, come here)
+  I'm on fire (come here)
+  I'm on fire (hey, come here)
+  I'm on fire
+  Fireball
+  We're takin' it, we're takin' it, we're takin' it down
+  We're takin' it, we're takin' it, we're takin' it down
+  We're takin' it, we're takin' it, we're takin' it down
+  We're takin' it, we're takin' it, we're takin' it down
+  We're takin' it (whoo), we're takin' it, we're takin' it down
+  We're takin' it, we're takin' it, we're takin' it down
+  We're takin' it, we're takin' it, we're takin' it down
+  We're takin' it, we're takin' it, we're takin' it down (hey!)
+  Now we're bringin' it, we're bringin' it, we're bringin' it back
+  We're bringin' it, we're bringin' it, we're bringin' it back
+  We're bringin' it, we're bringin' it, we're bringin' it back
+  We're bringin' it, we're bringin' it, we're bringin' it back (hey!)
+  We're bringin' it, we're bringin' it, we're bringin' it back
+  We're bringin' it, we're bringin' it, we're bringin' it back
+  We're bringin' it, we're bringin' it, we're bringin' it back
+  Fireball!
+  Fireball
+  I tell her, "Baby, baby, baby, baby
+  Baby, baby, baby, baby, baby (whoo-whoo!), I'm on fire"
+  I tell her, "Baby, baby, baby, baby
+  Baby, baby, baby, baby, baby, I'm a fireball"
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #f3f4f6;
+    --board-bg: #ffffff;
+    --col-bg: #fbfbff;
+    --col-border: #e5e7eb;
+    --card-border: #d1d5db;
+    --text-main: #111827;
+    --muted: #6b7280;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --danger: #ef4444;
+    --radius-col: 14px;
+    --radius-card: 10px;
+    --shadow-soft: 0 4px 18px rgba(15,23,42,0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: radial-gradient(circle at top, #e0f2fe 0, #f3f4f6 50%, #f9fafb 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding-bottom: 40px;
+  }
+
+  header {
+    text-align: center;
+    padding: 24px 16px 8px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 0.03em;
+  }
+
+
+  main.board {
+    margin: 18px auto 0;
+    width: min(1120px, 96vw);
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    padding: 16px 14px 18px;
+  }
+
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .column {
+    background: var(--col-bg);
+    border: 1px solid var(--col-border);
+    border-radius: var(--radius-col);
+    padding: 10px 10px 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 0 2px 6px;
+    border-bottom: 1px dashed #e5e7eb;
+    margin-bottom: 8px;
+  }
+
+  .column-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .column h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .column-sub {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .column-counter {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .column-controls {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin: 4px 0 6px;
+  }
+
+  .col-btn {
+    border-radius: 999px;
+    border: 1px solid var(--col-border);
+    background: #ffffff;
+    font-size: 11px;
+    padding: 5px 9px;
+    cursor: pointer;
+    color: #374151;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background .15s ease, transform .06s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+  .col-btn span {
+    font-size: 13px;
+  }
+  .col-btn:hover {
+    background: #f3f4f6;
+    box-shadow: 0 1px 3px rgba(15,23,42,0.15);
+  }
+  .col-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  .column-body {
+    margin-top: 4px;
+    padding: 4px;
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* brak overflow / max-height -> kolumna rośnie,
+      a przewija się cała strona */
+  }
+
+
+  .card {
+    position: relative;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--card-border);
+    padding: 8px 10px 6px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    box-shadow: 0 2px 7px rgba(15,23,42,0.08);
+    backdrop-filter: blur(3px);
+  }
+
+  .card-title {
+    min-height: 20px;
+    font-size: 14px;
+    line-height: 1.35;
+    outline: none;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .card-title:empty::before {
+    content: "Kliknij, aby wpisać treść…";
+    color: #374151aa;
+    font-size: 13px;
+  }
+
+  .card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+
+  .card-btn {
+    max-height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(17,24,39,0.08);
+    background: rgba(255,255,255,0.75);
+    padding: 4px 6px;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    transition: background .13s ease, transform .06s ease, opacity .13s ease, box-shadow .13s ease;
+  }
+  .card-btn:hover {
+    background: rgba(243,244,246,0.9);
+    box-shadow: 0 1px 3px rgba(15,23,42,0.15);
+  }
+  .card-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  .card-btn[disabled] {
+    opacity: 0.35;
+    cursor: default;
+    box-shadow: none;
+    background: rgba(249,250,251,0.6);
+  }
+
+  .card-btn--danger {
+    color: var(--danger);
+    border-color: rgba(248,113,113,0.45);
+    background: rgba(254,242,242,0.8);
+  }
+  .card-btn--danger:hover {
+    background: rgba(254,226,226,0.9);
+  }
+
+  .card-btn--tiny {
+    font-size: 10px;
+    padding: 3px 5px;
+  }
+
+  @media (max-width: 900px) {
+    main.board {
+      padding-inline: 10px;
+    }
+    .board-grid {
+      grid-template-columns: 1fr;
+    }
+    .column {
+      min-height: 220px;
+    }
+    .column-body {
+      max-height: none;
+    }
+  }
+
+</style>
+</head>
+<body>
+<header>
+  <h1>Kanbantool</h1>
+</header>
+
+<main class="board">
+  <div class="board-grid" id="board">
+    <!-- COLUMN TODO -->
+    <section class="column" data-col="todo" aria-label="Kolumna: Do zrobienia">
+      <div class="column-header">
+        <div class="column-title-wrap">
+          <h2>Do zrobienia</h2>
+          <span class="column-sub">Zadania do wykonania</span>
+        </div>
+        <span class="column-counter" data-counter="todo">0</span>
+      </div>
+      <div class="column-controls">
+        <button class="col-btn" data-col-action="add"><span>＋</span>Dodaj kartę</button>
+        <button class="col-btn" data-col-action="color"><span>🎨</span>Zmień kolory kart</button>
+        <button class="col-btn" data-col-action="sort"><span>⇅</span>Sortuj karty</button>
+      </div>
+      <div class="column-body" role="list"></div>
+    </section>
+
+    <!-- COLUMN DOING -->
+    <section class="column" data-col="doing" aria-label="Kolumna: W trakcie">
+      <div class="column-header">
+        <div class="column-title-wrap">
+          <h2>W trakcie</h2>
+          <span class="column-sub">Zadania w trakcie wykonywania</span>
+        </div>
+        <span class="column-counter" data-counter="doing">0</span>
+      </div>
+      <div class="column-controls">
+        <button class="col-btn" data-col-action="add"><span>＋</span>Dodaj kartę</button>
+        <button class="col-btn" data-col-action="color"><span>🎨</span>Zmień kolory kart</button>
+        <button class="col-btn" data-col-action="sort"><span>⇅</span>Sortuj karty</button>
+      </div>
+      <div class="column-body" role="list"></div>
+    </section>
+
+    <!-- COLUMN DONE -->
+    <section class="column" data-col="done" aria-label="Kolumna: Zrobione">
+      <div class="column-header">
+        <div class="column-title-wrap">
+          <h2>Zrobione</h2>
+          <span class="column-sub">Zadania ukończone</span>
+        </div>
+        <span class="column-counter" data-counter="done">0</span>
+      </div>
+      <div class="column-controls">
+        <button class="col-btn" data-col-action="add"><span>＋</span>Dodaj kartę</button>
+        <button class="col-btn" data-col-action="color"><span>🎨</span>Zmień kolory kart</button>
+        <button class="col-btn" data-col-action="sort"><span>⇅</span>Sortuj karty</button>
+      </div>
+      <div class="column-body" role="list"></div>
+    </section>
+  </div>
+</main>
+<script>
+  const KEY = 'kanbanBoardState_v1';
+  const COLS = ['todo', 'doing', 'done'];
+  const board = document.getElementById('board');
+  const counters = Object.fromEntries(
+    COLS.map(c => [c, document.querySelector(`[data-counter="${c}"]`)])
+  );
+
+  const load = () => {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      const s = JSON.parse(raw);
+      return s && s.columns && typeof s.nextId === 'number' ? s : null;
+    } catch {
+      return null;
+    }
+  };
+
+  let state = load() || {
+    nextId: 1,
+    columns: Object.fromEntries(COLS.map(c => [c, []]))
+  };
+
+  const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+  const pastel = () => `hsl(${Math.floor(Math.random() * 360)} 70% 85%)`;
+  const arr = col => state.columns[col];
+  const find = (col, id) => {
+    const a = arr(col), i = a.findIndex(x => x.id === id);
+    return [a, i, a[i] || null];
+  };
+  const esc = s => String(s).replace(/&/g, '&amp;')
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;');
+
+  const cardDom = (card, col) => {
+    const el = document.createElement('article');
+    el.className = 'card';
+    el.role = 'listitem';
+    el.dataset.cardId = card.id;
+    el.style.background = card.color || pastel();
+    const i = COLS.indexOf(col);
+    const canL = i > 0, canR = i < COLS.length - 1;
+    el.innerHTML = `
+      <div class="card-title" contenteditable="true" aria-label="Treść karty">${esc(card.title || '')}</div>
+      <div class="card-actions">
+        <button class="card-btn card-btn--tiny" data-action="color-card" title="Zmień kolor karty">🎨</button>
+        <button class="card-btn card-btn--tiny" data-action="move-left"  title="Przenieś do poprzedniej kolumny" ${canL ? '' : 'disabled'}>←</button>
+        <button class="card-btn card-btn--tiny" data-action="move-right" title="Przenieś do następnej kolumny" ${canR ? '' : 'disabled'}>→</button>
+        <button class="card-btn card-btn--tiny card-btn--danger" data-action="delete-card" title="Usuń kartę">x</button>
+      </div>`;
+    return el;
+  };
+
+  const renderCol = col => {
+    const body = board.querySelector(`.column[data-col="${col}"] .column-body`);
+    body.innerHTML = '';
+    arr(col).forEach(card => body.appendChild(cardDom(card, col)));
+    counters[col].textContent = arr(col).length;
+  };
+
+  const renderAll = () => COLS.forEach(renderCol);
+  const update = cols => { save(); (cols || COLS).forEach(renderCol); };
+
+  const add = (col, title = '') => {
+    arr(col).push({ id: state.nextId++, title, color: pastel() });
+  };
+
+  const del = (col, id) => {
+    const [a, i] = find(col, id);
+    if (i < 0) return;
+    a.splice(i, 1);
+  };
+
+  const move = (from, to, id) => {
+    if (from === to) return;
+    const [fromArr, i, card] = find(from, id);
+    if (!card || i < 0) return;
+    fromArr.splice(i, 1);
+    arr(to).push(card);
+  };
+
+  const colorCard = (col, id) => {
+    const [, , card] = find(col, id);
+    if (!card) return;
+    card.color = pastel();
+  };
+
+  const colorCol = col => arr(col).forEach(c => (c.color = pastel()));
+
+  const sortCol = col => {
+    arr(col).sort((a, b) => {
+      const ta = (a.title || '').trim().toLocaleLowerCase();
+      const tb = (b.title || '').trim().toLocaleLowerCase();
+      if (!ta && !tb) return 0;
+      if (!ta) return 1;
+      if (!tb) return -1;
+      return ta.localeCompare(tb);
+    });
+  };
+
+  const setTitle = (col, id, title) => {
+    const [, , card] = find(col, id);
+    if (!card) return;
+    card.title = title;
+    save(); // bez renderu – nie tracimy focusa
+  };
+
+  const cardCol = el => el.closest('.column')?.dataset.col;
+
+  board.addEventListener('click', e => {
+    const btn = e.target.closest('.card-btn');
+    if (btn) {
+      if (btn.disabled) return;
+      const card = btn.closest('.card');
+      if (!card) return;
+      const id = Number(card.dataset.cardId);
+      const col = cardCol(card);
+      if (!col) return;
+      const act = btn.dataset.action;
+
+      if (act === 'delete-card') { del(col, id); return update([col]); }
+      if (act === 'color-card') { colorCard(col, id); return update([col]); }
+
+      const idx = COLS.indexOf(col);
+      if (act === 'move-left' && idx > 0) {
+        move(col, COLS[idx - 1], id);
+        return update([col, COLS[idx - 1]]);
+      }
+      if (act === 'move-right' && idx < COLS.length - 1) {
+        move(col, COLS[idx + 1], id);
+        return update([col, COLS[idx + 1]]);
+      }
+      return;
+    }
+
+    const colBtn = e.target.closest('.col-btn');
+    if (colBtn) {
+      const col = colBtn.closest('.column')?.dataset.col;
+      if (!col) return;
+      const act = colBtn.dataset.colAction;
+      if (act === 'add') { add(col); update([col]); }
+      else if (act === 'color') { colorCol(col); update([col]); }
+      else if (act === 'sort') { sortCol(col); update([col]); }
+    }
+  });
+
+  board.addEventListener('input', e => {
+    const t = e.target.closest('.card-title');
+    if (!t) return;
+    const card = t.closest('.card');
+    if (!card) return;
+    const id = Number(card.dataset.cardId);
+    const col = cardCol(card);
+    if (!col) return;
+    const text = t.textContent.replace(/\s+\n?/g, ' ').trim();
+    setTitle(col, id, text);
+  });
+
+  board.addEventListener('focusout', e => {
+    const t = e.target.closest('.card-title');
+    if (!t) return;
+    t.textContent = t.textContent.replace(/\s+\n?/g, ' ').trim();
+  });
+
+  const total = COLS.reduce((n, c) => n + arr(c).length, 0);
+  if (total === 0) {
+    add('todo', 'Do zrobienia');
+    add('doing', 'Praca Praca');
+    add('done', 'Zrobione!');
+  }
+  renderAll();
+</script>
+
+
+</body>
 </html>
