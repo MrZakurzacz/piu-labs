@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>kwadraty i kółka</h1>
+    </header>
+
+    <section class="panel">
+      <div class="controls" aria-label="Sterowanie kształtami">
+        <button id="addSquare">Dodaj kwadrat</button>
+        <button id="addCircle">Dodaj kółko</button>
+        <button id="recolorSquares">Przekoloruj kwadraty</button>
+        <button id="recolorCircles">Przekoloruj kółka</button>
+      </div>
+
+      <div class="counters" aria-live="polite">
+        <span>Liczba kwadratów: <strong id="cntSquares">0</strong></span>
+        <span class="divider">|</span>
+        <span>Liczba kółek: <strong id="cntCircles">0</strong></span>
+      </div>
+    </section>
+
+    <section class="board-section">
+      <div id="board" class="board" aria-label="Pole z kształtami"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
