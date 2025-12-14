@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab-6 – Ajax Demo</title>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Ajax Demo</h1>
+      <p class="app-subtitle">
+        Prosty podgląd zapytań HTTP – pobierz listę postów, zasymuluj błąd albo wyczyść widok.
+      </p>
+    </header>
+
+    <section class="panel">
+      <div class="controls">
+        <button id="Load" class="btn btn-primary">
+          Pobierz dane
+        </button>
+
+        <button id="Error" class="btn btn-danger">
+          Błąd
+        </button>
+
+        <button id="Reset" class="btn btn-ghost">
+          Powrót do stanu początkowego
+        </button>
+      </div>
+
+      <div class="status-row">
+        <p id="loading" class="loading">
+          <span class="spinner"></span>
+          <span>Ładowanie danych...</span>
+        </p>
+
+        <p id="error" class="error" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="results">
+      <h2 class="results-title">Wyniki zapytania</h2>
+      <p class="results-hint">
+        Tutaj pojawi się lista postów z API po kliknięciu przycisku <strong>Pobierz dane</strong>.
+      </p>
+      <ul id="list" class="result-list"></ul>
+    </section>
+
+
+  <script type="module" src="./app.js" defer></script>
+</body>
+</html>
