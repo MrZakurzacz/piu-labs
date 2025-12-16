@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Sklep na niby</h1>
+    <label class="toggle">
+  <input type="checkbox" id="marketToggle" />
+  <span>Tryb giełdy (łap najlepsze okazje na żywo!)</span>
+</label>
+
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">Produkty</h2>
+        <p class="panelSub" id="productsCount">0 pozycji</p>
+      </div>
+
+      <section class="grid" id="productsGrid"></section>
+    </section>
+
+    <aside class="panel cart">
+      <div class="panelHead">
+        <h2 class="panelTitle">Koszyk</h2>
+        <p class="panelSub" id="cartCount">Pusto</p>
+      </div>
+
+      <div class="cartBody">
+        <ul class="cartList" id="cartList"></ul>
+        <div class="empty" id="cartEmpty">Dodaj coś do koszyka klikając „Do koszyka”.</div>
+      </div>
+
+      <div class="cartFooter">
+        <div class="sumRow">
+          <span class="sumLabel">Suma</span>
+          <span class="sumValue" id="cartTotal">0,00 zł</span>
+        </div>
+        <button class="btn secondary" id="clearCart" type="button" disabled>Wyczyść koszyk</button>
+      </div>
+    </aside>
+  </main>
+
+
+  <script type="module">
+    import { initShop } from './metody.js';
+    initShop();
+  </script>
+</body>
+</html>
