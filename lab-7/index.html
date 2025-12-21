@@ -4,15 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="./style.css" />
+  <title>Sklep na niby</title>
 </head>
 <body>
   <header class="hero">
     <h1>Sklep na niby</h1>
-    <label class="toggle">
-  <input type="checkbox" id="marketToggle" />
-  <span>Tryb giełdy (łap najlepsze okazje na żywo!)</span>
-</label>
 
+    <label class="toggle">
+      <input type="checkbox" id="marketToggle" />
+      <span>Tryb giełdy (łap najlepsze okazje na żywo!)</span>
+    </label>
   </header>
 
   <main class="layout">
@@ -46,9 +47,8 @@
     </aside>
   </main>
 
-
   <script type="module">
-    import { initShop } from './metody.js';
+    import { initShop } from './js/app.js';
     initShop();
   </script>
 </body>

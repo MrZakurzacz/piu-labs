@@ -1,0 +1,44 @@
+<template id="product-card">
+  <style>
+    :host { display: block; }
+    .card { border-radius: 16px; overflow: hidden; background: #0b1220; color: #e5e7eb; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .media { position: relative; aspect-ratio: 16/10; background: #111827; }
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .promo { position: absolute; top: 12px; left: 12px; }
+    .badge {pointer-events: none; display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(0, 0, 0, 0.65); color: #000000; font-weight: 600; font-size: 14px; }
+    .body { padding: 14px; display: grid; gap: 10px; }
+    .top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .name { margin: 0; font-size: 16px; line-height: 1.2; }
+    .price { font-weight: 700; white-space: nowrap; }
+    .row { display: grid; grid-template-columns: 80px 1fr; gap: 10px; align-items: start; }
+    .label { color: rgba(229,231,235,.7); font-size: 12px; padding-top: 3px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill { font-size: 12px; padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+    .btn { position: relative; z-index: 2; pointer-events: auto;cursor: pointer; border: 0; border-radius: 12px; padding: 10px 12px; background: rgba(56,189,248,.18); color: #e5e7eb; font-weight: 700; }
+    .btn:active { transform: translateY(1px); }
+    
+
+  </style>
+
+  <article class="card">
+    <div class="media">
+      <img class="img" />
+      <div class="promo" part="promo" hidden><span class="badge"></span></div>
+    </div>
+
+    <div class="body">
+      <div class="top">
+        <h3 class="name"></h3>
+        <div class="price"></div>
+      </div>
+
+      <div class="row colors" hidden>
+        <span class="label">Ziarna</span>
+        <div class="value pills"></div>
+      </div>
+
+
+      <button class="btn" type="button">Do koszyka</button>
+    </div>
+  </article>
+</template>
